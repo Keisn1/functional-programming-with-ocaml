@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       31725d59-959d-4c13-9d98-888fd5785bbc
+:END:
+#+title: opam - package management
+#+date: [2024-11-30 Sat 19:06]
+#+startup: overview
+
+https://opam.ocaml.org/
+https://ocaml.org/docs/installing-ocaml
+https://opam.ocaml.org/doc/Install.html#Arch-Linux
+
+install compiler as well as additional packages

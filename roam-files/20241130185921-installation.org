@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       c23c3893-5ca6-4161-9a93-756c8c3e2ef1
+:END:
+#+title: Installation
+#+date: [2024-11-30 Sat 18:59]
+#+startup: overview
+
+https://ocaml.org/install#linux_mac_bsd
+
+* [[id:31725d59-959d-4c13-9d98-888fd5785bbc][opam - package management]]

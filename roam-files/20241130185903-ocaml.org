@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       afc72d11-6947-409a-adbc-cd2b48c0e8ab
+:END:
+#+title: ocaml
+#+date: [2024-11-30 Sat 18:59]
+#+startup: overview
+
+https://ocaml.org/
