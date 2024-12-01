@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       68a38920-5788-41e6-bb45-a4a0f0054905
+:END:
+#+title: conditional expressions (not a statement)
+#+date: [2024-12-01 Sun 17:12]
+#+startup: overview
+
+* [[id:e5102803-e7de-4e11-a7e5-a84cb64a5aea][if-else]]
+* for and while
+- are meant if ocaml is used imperatively in conjunction with mutable data
+- recursive functions are preferred otherwise

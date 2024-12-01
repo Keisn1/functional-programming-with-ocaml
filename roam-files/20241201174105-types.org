@@ -1,0 +1,46 @@
+:PROPERTIES:
+:ID:       051ebac9-5531-4776-84c2-f3c5286986dc
+:END:
+#+title: types
+#+date: [2024-12-01 Sun 17:41]
+#+startup: overview
+
+* int
+#+begin_src ocaml
+50 + 50
+#+end_src
+* float
+#+begin_src ocaml
+6.28
+#+end_src
+** in computations one must use ~+.~
+#+begin_src ocaml
+fun a b -> a +. b
+#+end_src
+~- : float -> float -> float = <fun>~
+* string
+#+begin_src ocaml
+"This is really disco!"
+#+end_src
+* char
+#+begin_src ocaml
+'a'
+#+end_src
+* bool
+#+begin_src ocaml
+true
+#+end_src
+* list types
+** string list
+#+begin_src ocaml
+["this"; "is"; "mambo"]
+#+end_src
+** int list
+#+begin_src ocaml
+let u = [1; 2; 3; 4]
+#+end_src
+** empty list
+- : 'a list = []
+#+begin_src ocaml
+[]
+#+end_src

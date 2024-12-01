@@ -7,19 +7,9 @@
 
 dedicated tutorial = https://ocaml.org/docs/lists
 - list types are inferred from their elements
+- ordered collections of values of the same type
 
-* list types
-** string list
-#+begin_src ocaml
-["this"; "is"; "mambo"]
-#+end_src
-** int list
-#+begin_src ocaml
-let u = [1; 2; 3; 4]
-#+end_src
-** empty list
-- : 'a list = []
-#+begin_src ocaml
-[]
-#+end_src
+* defining a list
+- with [[id:78e16841-d17f-45bd-a491-c1711423fdc1][:: cons operator]]
+- with empty list =[]=
 * [[id:343c27b3-fd0e-4a1a-88b0-1608b939c374][list operators]]

@@ -6,3 +6,9 @@
 #+startup: overview
 
 - used for anonymous functions
+#+begin_src ocaml
+(fun x -> x * x) 50;;
+#+end_src
+
+#+RESULTS:
+: 2500

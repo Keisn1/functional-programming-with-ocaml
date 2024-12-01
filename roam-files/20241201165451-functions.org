@@ -1,0 +1,101 @@
+:PROPERTIES:
+:ID:       02377f7d-f51c-4535-b12a-002d6da0d85e
+:END:
+#+title: functions
+#+date: [2024-12-01 Sun 16:54]
+#+startup: overview
+
+- are values too
+- defined using [[id:d0104c64-4980-4aad-8f9a-f06cc3775c8d][let]] keyword or [[id:db7c599c-5088-4738-9eff-1d4b65091119][fun]] keyword
+- no return keyword
+
+#+begin_src ocaml
+let square x = x * x
+#+end_src
+~val square : int -> int = <fun>~
+- square is a value of type ~int -> int~, and the values itself can't be displayed hence ~<fun>~
+
+* labelled parameters
+https://ocaml.org/docs/labels
+#+begin_src ocaml
+String.ends_with;;
+#+end_src
+~- : suffix:string -> string -> bool = <fun>~
+- useful when several parameters of the same type
+- ~->~ associates to the right
+  ~- : suffix:string -> (string -> bool) = <fun>~
+  - a function that, given a "suffix" (string), returns a function which takes a string and returns a bool
+* anonymous functions
+- with [[id:db7c599c-5088-4738-9eff-1d4b65091119][fun]]
+#+begin_src ocaml
+fun x -> x * x
+#+end_src
+- immediately apply them
+  #+begin_src ocaml
+(fun x -> x * x) 50;;
+  #+end_src
+* functions with multiple paramters and partial application
+#+begin_src ocaml
+let cat a b = a ^ " " ^ b;;
+#+end_src
+** only passing one parameter (partial application)
+#+begin_src ocaml
+let cat_hi = cat "hi";;
+cat_hi "john"
+#+end_src
+* type parameters and Higher-order functions
+- function expecting another function as a parameter
+** List.map
+- polymorphic function
+  - 'a and b' as =implicit type variables=  (called alpha and beta)
+#+begin_src ocaml
+List.map;;
+#+end_src
+~- : ('a -> 'b) -> 'a list -> 'b list = <fun>~
+- two parameters
+  - ~- : ('a -> 'b) = <fun>~
+  - ~- : 'a list~
+- List.map is a function, that given a function, returns a function which takes a list as input and returns a list
+** partial application on integer multiplication
+#+begin_src ocaml
+List.map (fun x -> x * x);;
+#+end_src
+** application to a list
+#+begin_src ocaml
+List.map (fun x -> x * x) [0; 1; 2; 3; 4; 5];;
+#+end_src
+* side-effects and unit Type
+[[file:~/workspace/functional-programming/functional-programming-with-ocaml/progrums/os_functions.ml::let () = print_endline str][(1) little program demonstrating usage of read_line and print_endline in src file]]
+** read_line
+- reads characters fron stdin
+  - returns them as a string when =EOL= has been reached
+#+begin_src ocaml
+read_line;;
+read_line ()
+#+end_src
+** print_endline
+- prints a string to stdout followed by =EOL=
+#+begin_src ocaml
+print_endline "¿Cuándo se come aqui?"
+#+end_src
+** unit Type - ()
+- indicating absence of data
+  - used as placeholder when no data is passed or returned
+  - when a token needs to passed (see [[file:~/workspace/functional-programming/functional-programming-with-ocaml/progrums/os_functions.ml::let () = print_endline str][(1)]])
+  - often used to indicate the presence of side-effects
+- type is =unit=, =unit= is the name of the type
+- has the value ~()~
+- prononounced unit
+** side-effect
+- something taking place that doesn't appear in the function signature
+* Recursive Functions
+- must be declared ~let rec ... = ...~
+#+begin_src ocaml
+let rec range lo hi =
+  if lo > hi then
+    []
+  else
+  lo :: range (lo + 1) hi;;
+
+range 1 5
+#+end_src

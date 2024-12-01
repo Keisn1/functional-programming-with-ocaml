@@ -1,0 +1,13 @@
+:PROPERTIES:
+:ID:       e5102803-e7de-4e11-a7e5-a84cb64a5aea
+:END:
+#+title: if-else
+#+date: [2024-12-01 Sun 17:12]
+#+startup: overview
+
+- source beginning from if to 5 is parsed as a single integer expression
+- ~ternary~ and ~if-else~ are the same
+- no parantheses needed
+#+begin_src ocaml
+2 * if "hello" = "world" then 3 else 5
+#+end_src

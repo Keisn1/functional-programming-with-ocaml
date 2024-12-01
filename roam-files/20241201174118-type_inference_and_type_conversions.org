@@ -1,0 +1,43 @@
+:PROPERTIES:
+:ID:       8dd43e1a-7887-4b6d-8598-1d25029b5902
+:END:
+#+title: type inference and type conversions
+#+date: [2024-12-01 Sun 17:41]
+#+startup: overview
+
+- type of expression is automatically determined
+- no implicit conversion at all
+- not possible to add float with an integer
+- error code
+  #+begin_src ocaml
+2 + 2.5
+  #+end_src
+
+  #+RESULTS:
+  : Line 1, characters 4-7:
+  : 1 | 2 + 2.5;;
+  :         ^^^
+  : Error: This expression has type "float" but an expression was expected of type
+  :          "int"
+
+  #+begin_src ocaml
+1 +. 2.5
+  #+end_src
+
+  #+RESULTS:
+  : Line 1, characters 0-1:
+  : 1 | 1 +. 2.5;;
+  :     ^
+  : Error: This expression has type "int" but an expression was expected of type
+  :          "float"
+  :   Hint: Did you mean "1."?
+
+- one needs to *explicitly* convert types
+  #+begin_src ocaml
+float_of_int 1 +. 2.5
+  #+end_src
+
+  #+RESULTS:
+  : 3.5
+
+- enables type inference

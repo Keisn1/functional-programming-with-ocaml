@@ -29,3 +29,18 @@ cat_hi "Kay";;
 List.map;;
 List.map (fun x -> x * x);;
 List.map (fun x -> x * x) [0; 1; 2; 3; 4; 5];;
+
+let rec range lo hi =
+  if lo > hi then
+    []
+  else
+  lo :: range (lo + 1) hi;;
+
+let result = range 1 5;;
+
+fun a b -> a +. b
+
+let rec sum u =
+match u with
+| [] -> 0
+| x :: v -> x + sum v;;

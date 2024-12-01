@@ -1,0 +1,47 @@
+:PROPERTIES:
+:ID:       b7efd0e6-849b-425b-8afd-3b53510f450a
+:END:
+#+title: pattern matching
+#+date: [2024-12-01 Sun 17:39]
+#+startup: overview
+
+* on lists
+#+begin_src ocaml
+let rec sum u =
+match u with
+| [] -> 0
+| x :: v -> x + sum v;;
+
+sum [1; 3; 5; 7; 9]
+#+end_src
+
+#+RESULTS:
+: 25
+
+~val sum : int list -> int = <fun>~
+
+* polymorphic functions on lists
+#+begin_src ocaml
+let rec length u =
+match u with
+| [] -> 0
+| _ :: v -> 1 + length v;;      (* _ doesn't define a name; it can't be used in the body *)
+
+length [5; 4; 3; 2; 1]
+#+end_src
+
+#+RESULTS:
+: 5
+
+~val length : 'a list -> int = <fun>~
+
+- first pattern: empty list can be of any element type
+- second pattern:
+  - value at the head of the list
+  - irrelevant because ~_~ pattern indicates that it is not inspected
+
+- input: ~'a list~
+- output: ~int~
+https://ocaml.org/docs/basic-data-types -> pattern matching with lists
+
+* defining a higher order function

@@ -9,7 +9,8 @@ https://ocaml.org/
 
 * [[id:c23c3893-5ca6-4161-9a93-756c8c3e2ef1][Installation]]
 * [[id:077efaa3-e7ec-43df-ba2c-d79c1bacfeda][the language]]
-
+* Testing
+https://ocaml.org/docs/running-executables-and-tests-with-dune
 * Package management - [[id:31725d59-959d-4c13-9d98-888fd5785bbc][opam - package management]]
 * REPL - [[id:9edd67a1-fa09-4373-b67c-ba004b788f92][utop]]
 * Package manager - [[id:e400f5c7-047d-4894-b929-8346c9a36b39][Dune]]
