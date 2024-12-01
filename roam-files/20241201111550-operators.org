@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       d18de63a-1362-4196-9da7-0c89f84183ef
+:END:
+#+title: operators
+#+date: [2024-12-01 Sun 11:15]
+#+startup: overview
+
+
+* logical operators
+** equality "="
+- used in definitions and equality tests
+#+begin_src ocaml
+let dummy = "hi" = "hello";;
+#+end_src
+
+#+RESULTS:
+: false
+** negation of "=" is "<>"
+** negation "====" is "!="
+- ==== is physical equality
+* [[id:343c27b3-fd0e-4a1a-88b0-1608b939c374][list operators]]

@@ -10,3 +10,12 @@ https://ocaml.org/docs/installing-ocaml
 https://opam.ocaml.org/doc/Install.html#Arch-Linux
 
 install compiler as well as additional packages
+
+* initialize
+#+begin_src shell
+opam init
+#+end_src
+* install ocamlformat
+#+begin_src shell
+opam install ocamlformat
+#+end_src

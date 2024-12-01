@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       db7c599c-5088-4738-9eff-1d4b65091119
+:END:
+#+title: fun
+#+date: [2024-12-01 Sun 11:51]
+#+startup: overview
+
+- used for anonymous functions

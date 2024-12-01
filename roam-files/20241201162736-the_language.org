@@ -1,0 +1,101 @@
+:PROPERTIES:
+:ID:       077efaa3-e7ec-43df-ba2c-d79c1bacfeda
+:END:
+#+title: the language
+#+date: [2024-12-01 Sun 16:27]
+#+startup: overview
+
+* [[id:454eb791-4418-4aae-93a8-032deb28d03a][values, names, and bindings]]
+* [[id:9d004f96-d573-47c1-8b4a-51aac9060389][lists]]
+* [[id:d18de63a-1362-4196-9da7-0c89f84183ef][operators]]
+* types
+** int
+#+begin_src ocaml
+50 + 50
+#+end_src
+** float
+#+begin_src ocaml
+6.28
+#+end_src
+** string
+#+begin_src ocaml
+"This is really disco!"
+#+end_src
+** char
+#+begin_src ocaml
+'a'
+#+end_src
+** bool
+#+begin_src ocaml
+true
+#+end_src
+* type inference
+- type of expression is automatically determined
+* conditional expression (not a statement)
+** if-else
+- source beginning from if to 5 is parsed as a single integer expression
+- ~ternary~ and ~if-else~ are the same
+- no parantheses needed
+#+begin_src ocaml
+2 * if "hello" = "world" then 3 else 5
+#+end_src
+* functions
+- are values too
+- defined using [[id:d0104c64-4980-4aad-8f9a-f06cc3775c8d][let]] keyword or [[id:db7c599c-5088-4738-9eff-1d4b65091119][fun]] keyword
+- no return keyword
+
+#+begin_src ocaml
+let square x = x * x
+#+end_src
+~val square : int -> int = <fun>~
+- square is a value of type ~int -> int~, and the values itself can't be displayed hence ~<fun>~
+
+** labelled parameters
+https://ocaml.org/docs/labels
+#+begin_src ocaml
+String.ends_with;;
+#+end_src
+~- : suffix:string -> string -> bool = <fun>~
+- useful when several parameters of the same type
+- ~->~ associates to the right
+  ~- : suffix:string -> (string -> bool) = <fun>~
+  - a function that, given a "suffix" (string), returns a function which takes a string and returns a bool
+** anonymous functions
+- with [[id:db7c599c-5088-4738-9eff-1d4b65091119][fun]]
+#+begin_src ocaml
+fun x -> x * x
+#+end_src
+- immediately apply them
+  #+begin_src ocaml
+(fun x -> x * x) 50;;
+  #+end_src
+** functions with multiple paramters and partial application
+#+begin_src ocaml
+let cat a b = a ^ " " ^ b;;
+#+end_src
+*** only passing one parameter (partial application)
+#+begin_src ocaml
+let cat_hi = cat "hi";;
+cat_hi "john"
+#+end_src
+** type parameters and Higher-order functions
+- function expecting another function as a parameter
+*** List.map
+- polymorphic function
+  - 'a and b' as =implicit type variables=  (called alpha and beta)
+#+begin_src ocaml
+List.map;;
+#+end_src
+~- : ('a -> 'b) -> 'a list -> 'b list = <fun>~
+- two parameters
+  - ~- : ('a -> 'b) = <fun>~
+  - ~- : 'a list~
+- List.map is a function, that given a function, returns a function which takes a list as input and returns a list
+*** partial application on integer multiplication
+#+begin_src ocaml
+List.map (fun x -> x * x);;
+#+end_src
+*** application to a list
+#+begin_src ocaml
+List.map (fun x -> x * x) [0; 1; 2; 3; 4; 5];;
+#+end_src

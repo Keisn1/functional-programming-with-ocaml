@@ -1,1 +1,5 @@
 /roam-files/ocaml.db
+/progrums/2plus2
+/progrums/hello
+/progrums/*.cmi
+/progrums/*.cmo

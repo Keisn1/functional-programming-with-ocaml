@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       e400f5c7-047d-4894-b929-8346c9a36b39
+:END:
+#+title: Dune
+#+date: [2024-12-01 Sun 11:18]
+#+startup: overview
+
+https://dune.build/
+- build system for OCaml projects

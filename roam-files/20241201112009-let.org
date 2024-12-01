@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       d0104c64-4980-4aad-8f9a-f06cc3775c8d
+:END:
+#+title: let
+#+date: [2024-12-01 Sun 11:20]
+#+startup: overview
+
+- giving a name to a value
+#+begin_src ocaml
+let x = 50
+#+end_src

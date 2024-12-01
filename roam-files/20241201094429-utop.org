@@ -1,0 +1,30 @@
+:PROPERTIES:
+:ID:       9edd67a1-fa09-4373-b67c-ba004b788f92
+:END:
+#+title: utop
+#+date: [2024-12-01 Sun 09:44]
+#+startup: overview
+
+- universal toplevel (REPL)
+- https://github.com/ocaml-community/utop
+- https://ocaml.org/docs/toplevel-introduction
+
+
+* Usage
+- =#= ... hash prompt, waiting for input
+- =;;= ... trigger parsing
+  - type checking + evaluation
+  - interpretation of =;;= is made by ~utop~ not by ~ocaml interpreter~
+* output
+- character ~-~ appears if expression doesnt' have a name
+
+* with opam
+#+begin_src emacs-lisp
+;; Use the opam installed utop
+(setq utop-command "opam exec -- utop -emacs")
+#+end_src
+
+* with dune
+#+begin_src emacs-lisp
+(setq utop-command "opam exec -- dune utop . -- -emacs")
+#+end_src

@@ -1,0 +1,45 @@
+:PROPERTIES:
+:ID:       454eb791-4418-4aae-93a8-032deb28d03a
+:END:
+#+title: values, names, and bindings
+#+date: [2024-12-01 Sun 11:15]
+#+startup: overview
+
+- everything has a value
+- every value has a type
+- typical Ocaml output
+  - bound
+    - "val x : int = 50"
+    - x is identifier bound to value 50 which is of type int
+  - unbound
+    - "- : int = 50"
+* [[id:d0104c64-4980-4aad-8f9a-f06cc3775c8d][let]]
+* bindings are immutable
+- value assigned to a name never changes
+- it is possible to give names to values that can be updated  (https://ocaml.org/docs/tour-of-ocaml#working-with-mutable-state)
+* no overloading
+- inside a lexical scope, names have a single value, which only depends on its definition
+-
+* local definitions of names (let ... = ... in ...)
+- y is only defined in the expression following the =in= keyword
+#+begin_src ocaml
+let y = 50 in y * y;;
+y;;
+#+end_src
+** nested expressions
+#+begin_src ocaml
+let a = 1 in
+    let b = 2 in
+    a + b;;
+#+end_src
+
+#+RESULTS:
+: 3
+
+* docstrings
+- special comments, that tools interpret as related to the binding
+- https://ocaml.github.io/odoc/odoc_for_authors.html#special_comments
+  #+begin_src ocaml
+(** Feet in a mile **)
+let feets = 54000;;
+  #+end_src

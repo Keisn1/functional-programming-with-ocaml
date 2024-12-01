@@ -1,0 +1,15 @@
+:PROPERTIES:
+:ID:       343c27b3-fd0e-4a1a-88b0-1608b939c374
+:END:
+#+title: list operators
+#+date: [2024-12-01 Sun 11:17]
+#+startup: overview
+
+* ~::~ ... add element
+#+begin_src ocaml
+let u = [1; 2; 3; 4];;
+9 :: u;;
+#+end_src
+
+#+RESULTS:
+| 9 | 1 | 2 | 3 | 4 |
