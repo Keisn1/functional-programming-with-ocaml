@@ -39,6 +39,7 @@ true
 #+begin_src ocaml
 let u = [1; 2; 3; 4]
 #+end_src
+~val u : int list = [1; 2; 3; 4]~
 ** empty list
 - : 'a list = []
 #+begin_src ocaml

@@ -44,3 +44,9 @@ let rec sum u =
 match u with
 | [] -> 0
 | x :: v -> x + sum v;;
+
+
+let rec length u =
+match u with
+| [] -> 0
+| _ :: v -> 1 + length v;;
