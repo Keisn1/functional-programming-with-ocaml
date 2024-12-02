@@ -11,4 +11,4 @@
 * [[id:68a38920-5788-41e6-bb45-a4a0f0054905][conditional expressions (not a statement)]]
 * [[id:02377f7d-f51c-4535-b12a-002d6da0d85e][functions]]
 * [[id:518c3238-49a0-44ae-a867-3fc214a6a250][data and typing]]
-* [[id:b7efd0e6-849b-425b-8afd-3b53510f450a][pattern matching]]
+* [[id:6db80719-986b-4bf2-9eab-0f5b188106be][pattern matching]]

@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       23446bf8-f6ad-440b-b5c5-e88cb9af8a66
+:END:
+#+title: type construction
+#+date: [2024-12-02 Mon 07:24]
+#+startup: overview
+
+* [[id:944b91a7-fb75-408e-99bd-c7dc517af56a][seeing (inspecting) a type]]

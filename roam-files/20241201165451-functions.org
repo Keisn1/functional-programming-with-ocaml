@@ -99,3 +99,19 @@ let rec range lo hi =
 
 range 1 5
 #+end_src
+* Higher-Order functions
+- Higher-order functions = functions that have other functions as parameters
+- recreating map
+
+#+begin_src ocaml
+let square x = x * x;;
+let rec map f u =
+  match u with
+  | [] -> []
+  | x :: u -> f x :: map f u;;
+
+map square [1; 2; 3; 4]
+#+end_src
+
+#+RESULTS:
+| 1 | 4 | 9 | 16 |

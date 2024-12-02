@@ -1,0 +1,39 @@
+:PROPERTIES:
+:ID:       7c370ded-8b76-4589-aa7b-3cf0eef52d44
+:END:
+#+title: pairs and tuples
+#+date: [2024-12-02 Mon 07:33]
+#+startup: overview
+
+- tuples fixed-length collections of elements of any type
+- pairs are tuples with 2 elements
+- type is written with ~*~
+
+#+begin_src ocaml
+let t = (1, "one", 'K');;
+#show t;;
+#+end_src
+
+#+RESULTS:
+: val p : int * string * char
+
+#+begin_src ocaml
+let p = (1, "one");;
+#show p;;
+#+end_src
+
+#+RESULTS:
+: val p : int * string
+
+* snd (second)
+#+begin_src ocaml
+let snd p =
+  match p with
+    | (_, y) -> y;;
+#show snd;;
+
+snd (1, "apple");;
+#+end_src
+
+#+RESULTS:
+: apple

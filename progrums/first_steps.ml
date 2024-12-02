@@ -50,3 +50,30 @@ let rec length u =
 match u with
 | [] -> 0
 | _ :: v -> 1 + length v;;
+
+let square x = x * x;;
+
+#show option;;
+
+snd (1, "apple");;
+
+
+type primary_colour = Red | Green | Blue;;
+#show [Red; Blue; Red; Green]
+
+type http_response =
+  | Data of string
+  | Error_code of int;;
+
+Data "<!DOCTYPE html>
+<html lang=\"en\">
+  <head>
+    <meta charset=\"utf-8\">
+    <title>Dummy</title>
+  </head>
+  <body>
+    Dummy Page
+  </body>
+</html>";;
+
+Error_code 404;;

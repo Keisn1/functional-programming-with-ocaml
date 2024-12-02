@@ -1,0 +1,62 @@
+:PROPERTIES:
+:ID:       b798947b-edf4-4d3f-bb8b-4b8ec4e8ba23
+:END:
+#+title: variant types
+#+date: [2024-12-02 Mon 07:40]
+#+startup: overview
+
+- generalises enumerated and union types
+- capatilized identifiers are called constructors
+  - allow the creation of variant values
+    - unrelated to object-oriented programming
+
+* example enumerated type
+
+#+begin_src ocaml
+type primary_colour = Red | Green | Blue
+#+end_src
+
+#+RESULTS:
+: type primary_colour = Red | Green | Blue
+
+#+begin_src ocaml
+let g = [Red; Blue; Red; Green];;
+#show g;;
+#+end_src
+
+#+RESULTS:
+: val g : primary_colour list
+
+* example union type
+#+begin_src ocaml
+type http_response =
+  | Data of string
+  | Error_code of int;;
+#+end_src
+
+#+RESULTS:
+: type http_response = Data of string | Error_code of int
+
+#+begin_src ocaml
+Data "<!DOCTYPE html>
+<html lang=\"en\">
+  <head>
+    <meta charset=\"utf-8\">
+    <title>Dummy</title>
+  </head>
+  <body>
+    Dummy Page
+  </body>
+</html>";;
+#+end_src
+
+#+RESULTS:
+: Data
+:  "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <title>Dummy</title>\n  </head>\n  <body>\n    Dummy Page\n  </body>\n</html>"
+
+#+begin_src ocaml
+Error_code 404;;
+#+end_src
+
+#+RESULTS:
+: type http_response = Data of string | Error_code of int

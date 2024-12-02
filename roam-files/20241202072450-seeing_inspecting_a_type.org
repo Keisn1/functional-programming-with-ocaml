@@ -1,0 +1,14 @@
+:PROPERTIES:
+:ID:       944b91a7-fb75-408e-99bd-c7dc517af56a
+:END:
+#+title: seeing (inspecting) a type
+#+date: [2024-12-02 Mon 07:24]
+#+startup: overview
+
+with #show
+#+begin_src ocaml
+#show option;;
+#+end_src
+
+#+RESULTS:
+: type 'a option = None | Some of 'a

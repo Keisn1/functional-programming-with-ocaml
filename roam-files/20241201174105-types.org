@@ -5,6 +5,7 @@
 #+date: [2024-12-01 Sun 17:41]
 #+startup: overview
 
+* [[id:944b91a7-fb75-408e-99bd-c7dc517af56a][seeing (inspecting) a type]]
 * int
 #+begin_src ocaml
 50 + 50
@@ -30,18 +31,6 @@ fun a b -> a +. b
 #+begin_src ocaml
 true
 #+end_src
-* list types
-** string list
-#+begin_src ocaml
-["this"; "is"; "mambo"]
-#+end_src
-** int list
-#+begin_src ocaml
-let u = [1; 2; 3; 4]
-#+end_src
-~val u : int list = [1; 2; 3; 4]~
-** empty list
-- : 'a list = []
-#+begin_src ocaml
-[]
-#+end_src
+* [[id:9d004f96-d573-47c1-8b4a-51aac9060389][lists]]
+* [[id:7c370ded-8b76-4589-aa7b-3cf0eef52d44][pairs and tuples]]
+* [[id:b798947b-edf4-4d3f-bb8b-4b8ec4e8ba23][variant types]]

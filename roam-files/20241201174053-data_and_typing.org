@@ -7,3 +7,4 @@
 
 * [[id:051ebac9-5531-4776-84c2-f3c5286986dc][types]]
 * [[id:8dd43e1a-7887-4b6d-8598-1d25029b5902][type inference and type conversions]]
+* [[id:23446bf8-f6ad-440b-b5c5-e88cb9af8a66][type construction]]

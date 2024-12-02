@@ -1,0 +1,85 @@
+:PROPERTIES:
+:ID:       6db80719-986b-4bf2-9eab-0f5b188106be
+:END:
+#+title: pattern matching
+#+date: [2024-12-02 Mon 07:13]
+#+startup: overview
+
+- any type can be inspected using pattern matching =except functions=
+- generalises switch-statements and *if ... then ... else* but more convenient
+- patterns are expressions that are compared to an inspected value
+- underscore symbol ~_~ is a *catch all* pattern
+- patterns are read from top to bottom
+- throws warning if not all all cases are catched
+
+* pattern matching on lists
+#+begin_src ocaml
+let rec sum u =
+match u with
+| [] -> 0
+| x :: v -> x + sum v;;
+
+sum [1; 3; 5; 7; 9]
+#+end_src
+
+#+RESULTS:
+: 25
+
+~val sum : int list -> int = <fun>~
+
+* polymorphic functions on lists
+#+begin_src ocaml
+let rec length u =
+match u with
+| [] -> 0
+| _ :: v -> 1 + length v;;      (* _ doesn't define a name; it can't be used in the body *)
+
+length [5; 4; 3; 2; 1]
+#+end_src
+
+#+RESULTS:
+: 5
+
+~val length : 'a list -> int = <fun>~
+
+- first pattern: empty list can be of any element type
+- second pattern:
+  - value at the head of the list
+  - irrelevant because ~_~ pattern indicates that it is not inspected
+
+- input: ~'a list~
+- output: ~int~
+https://ocaml.org/docs/basic-data-types -> pattern matching with lists
+* pattern matching on option type
+#+begin_src ocaml
+#show option;;
+#+end_src
+
+#+RESULTS:
+: type 'a option = None | Some of 'a
+
+#+begin_src ocaml
+let f opt = match opt with
+    | None -> None
+    | Some None -> None
+    | Some (Some x) -> Some x;;
+
+#show f;;
+#+end_src
+
+#+RESULTS:
+: val f : 'a option option -> 'a option
+* simple illustrative pattern matching to see that it defines a function
+#+begin_src ocaml
+let g' x = match x with
+    | "foo" -> 1
+    | "bar" -> 2
+    | "baz" -> 3
+    | "qux" -> 4
+    | _ -> 0;;
+
+#show g';;
+#+end_src
+
+#+RESULTS:
+: val g' : string -> int
