@@ -7,27 +7,47 @@
 
 - generalise [[id:a7f9f15b-92fb-4bdd-8601-502c3d65d038][enumerated]] and [[id:30be7151-21b4-4abc-9be1-bed4610988f9][union types]]
 
-- capatilized identifiers are called constructors
-  - allow the creation of variant values
-    - unrelated to object-oriented programming
 
-* example enumerated type
+- =constructors=: capatilized identifiers (e.g. ~Data~, ~Error_code~, are called constructors
+  - used to create values of the variant type that they belong to
+    - unrelated to object-oriented programming
+  - without associated data type [[id:d9619eb9-de68-4199-b86e-32e6dcb7b6c1][example enumerated type]]
+    - the constructors are then constant values
+  - with associated data type [[id:4aed8e72-f77b-4d3f-8d18-6556b2239e0d][example union type]]
+
+* example enumerated type (colour)
+:PROPERTIES:
+:ID:       d9619eb9-de68-4199-b86e-32e6dcb7b6c1
+:END:
 
 #+begin_src ocaml
 type primary_colour = Red | Green | Blue
 #+end_src
+
+#+RESULTS:
+: type primary_colour = Red | Green | Blue
 
 #+begin_src ocaml
 let g = [Red; Blue; Red; Green];;
 #show g;;
 #+end_src
 
-* example union type
+#+RESULTS:
+: val g : primary_colour list
+
+* example union type (http_response)
+:PROPERTIES:
+:ID:       4aed8e72-f77b-4d3f-8d18-6556b2239e0d
+:END:
+- The constructors =Data= and =Error_code= are not types themselves but part of the type definition of =http_response=.
 #+begin_src ocaml
 type http_response =
   | Data of string
   | Error_code of int
 #+end_src
+
+#+RESULTS:
+: type http_response = Data of string | Error_code of int
 
 #+begin_src ocaml
 Data "<!DOCTYPE html>
@@ -42,12 +62,123 @@ Data "<!DOCTYPE html>
 </html>";;
 #+end_src
 
+#+RESULTS:
+: Data
+:  "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <title>Dummy</title>\n  </head>\n  <body>\n    Dummy Page\n  </body>\n</html>"
+
 
 #+begin_src ocaml
 Error_code 404;;
+#show Error_code;;              (* shows Error_Code is a type *)
 #+end_src
 
-* example in between
+#+RESULTS:
+: type http_response = Data of string | Error_code of int
+
+
 #+begin_src ocaml
-
+let new_error = Error_code 404;;
+#show new_error;;
 #+end_src
+
+#+RESULTS:
+: val new_error : http_response
+
+* example in between (page range)
+#+begin_src ocaml
+type page_range =
+    | All
+    | Current
+    | Range of int * int;;
+#+end_src
+
+#+RESULTS:
+: type page_range = All | Current | Range of int * int
+* variant types with pattern matching
+** colour to rgb
+#+begin_src ocaml
+let colour_to_rgb colour =
+    match colour with
+    | Red -> (0xff, 0, 0)
+    | Green -> (0, 0xff, 0)
+    | Blue -> (0, 0, 0xff);;
+
+#show colour_to_rgb;;
+#+end_src
+
+#+RESULTS:
+: val colour_to_rgb : primary_colour -> int * int * int
+
+#+begin_src ocaml
+colour_to_rgb Red;;
+#+end_src
+
+#+RESULTS:
+: (255, 0, 0)
+** http status code
+#+begin_src ocaml
+let http_status_code response =
+    match response with
+    | Data _ -> 200
+    | Error_code code -> code;;
+#show http_status_code;;
+#+end_src
+
+#+RESULTS:
+: val http_status_code : http_response -> int
+
+#+begin_src ocaml
+let error = Error_code 402;;
+http_status_code error;;
+http_status_code (Data "wadde hadde dudde da");;
+#+end_src
+
+#+RESULTS:
+: 200
+** page range is printable
+#+begin_src ocaml
+let is_printable page_count cur range =
+    match range with
+    | All -> true
+    | Current -> 0 <= cur && cur < page_count
+    | Range (lo, hi) -> 0 <= lo && lo <= hi && hi < page_count;;
+#show is_printable;;
+#+end_src
+
+#+RESULTS:
+: val is_printable : int -> int -> page_range -> bool
+
+#+begin_src ocaml
+is_printable 49 33 All;;
+#+end_src
+
+#+RESULTS:
+: true
+
+#+begin_src ocaml
+is_printable 49 33 Current;;
+#+end_src
+
+#+RESULTS:
+: true
+
+#+begin_src ocaml
+is_printable 49 54 Current;;
+#+end_src
+
+#+RESULTS:
+: false
+
+#+begin_src ocaml
+is_printable 49 54 (Range (12,33));;
+#+end_src
+
+#+RESULTS:
+: true
+
+#+begin_src ocaml
+is_printable 49 54 (Range (12,65));;
+#+end_src
+
+#+RESULTS:
+: false
