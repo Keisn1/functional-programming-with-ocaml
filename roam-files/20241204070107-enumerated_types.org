@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       a7f9f15b-92fb-4bdd-8601-502c3d65d038
+:END:
+#+title: enumerated types
+#+date: [2024-12-04 Wed 07:01]
+#+startup: overview
+
+- a data type consisting of a set of named values called enumerators
+- values represent constants and are typically used to define variables that can hold only one of a limited set of possible values
+- to improve code readability and maintainability.

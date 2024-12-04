@@ -43,7 +43,7 @@ let cat a b = a ^ " " ^ b;;
 let cat_hi = cat "hi";;
 cat_hi "john"
 #+end_src
-* type parameters and Higher-order functions
+* type parameters (type variables) and Higher-order functions
 - function expecting another function as a parameter
 ** List.map
 - polymorphic function
@@ -99,6 +99,30 @@ let rec range lo hi =
 
 range 1 5
 #+end_src
+* polymorphic functions on lists
+#+begin_src ocaml
+let rec length u =
+match u with
+| [] -> 0
+| _ :: v -> 1 + length v;;      (* _ doesn't define a name; it can't be used in the body *)
+
+length [5; 4; 3; 2; 1]
+#+end_src
+
+#+RESULTS:
+: 5
+
+~val length : 'a list -> int = <fun>~
+
+- first pattern: empty list can be of any element type
+  - 'a is a type variable
+- second pattern:
+  - value at the head of the list
+  - irrelevant because ~_~ pattern indicates that it is not inspected
+
+- input: ~'a list~
+- output: ~int~
+https://ocaml.org/docs/basic-data-types -> pattern matching with lists
 * Higher-Order functions
 - Higher-order functions = functions that have other functions as parameters
 - recreating map

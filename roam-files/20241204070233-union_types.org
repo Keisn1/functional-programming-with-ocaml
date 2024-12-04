@@ -1,0 +1,13 @@
+:PROPERTIES:
+:ID:       30be7151-21b4-4abc-9be1-bed4610988f9
+:END:
+#+title: union types
+#+date: [2024-12-04 Wed 07:02]
+#+startup: overview
+
+- a data type that allows a variable to hold values of different types
+- but only one type at a time
+
+ - commonly used to optimize memory usage by using the same memory location for different types as needed
+
+- In some programming languages, union types are explicitly defined, while in others, they may be represented through language features like type unions or tagged unions

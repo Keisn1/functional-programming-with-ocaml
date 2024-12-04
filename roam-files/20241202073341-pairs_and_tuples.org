@@ -25,7 +25,7 @@ let p = (1, "one");;
 #+RESULTS:
 : val p : int * string
 
-* snd (second)
+* snd (second) (predefined)
 #+begin_src ocaml
 let snd p =
   match p with
